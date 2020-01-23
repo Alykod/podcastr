@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const APIURL = 'http://localhost:1337/graphql';","map":{"version":3,"sources":["/Users/kod/Desktop/podcastframework/podcastUI/setup.js"],"names":["APIURL"],"mappings":"AAAA,OAAO,MAAMA,MAAM,GAAG,+BAAf","sourcesContent":["export const APIURL = 'http://localhost:1337/graphql'"]},"metadata":{},"sourceType":"module"}
