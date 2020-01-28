@@ -8,7 +8,7 @@ import {UPDATE_CURRENT_PODCAST} from '..//components/context/reducers'
 // import PodcastsList from '../components/apolloLayout';
 import { useQuery } from '@apollo/react-hooks';
 import PodcastCard from '../components/podcastCard'
-import {PodcastsQuery, LatestPodcastQuery} from '../services/query';
+import {PodcastsQuery} from '../services/query';
 import _ from 'lodash'
 
 
@@ -17,8 +17,6 @@ const Index = () => {
     const { data, loading, error } = useQuery(PodcastsQuery);
     const [loadingStatus, setLoadingStatus] = useState(loading);
     const [podcastData, setPodcastData] = useState(null);
-
-    // console.log("data", data);
 
     useEffect(()=> {
         if(data && !_.isEqual(data.podcasts, podcastData)) {
@@ -41,10 +39,7 @@ const Index = () => {
     <Layout>
       <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignContent: 'space-between'}}>
       {handleCardsMapping()}
-
       </div>
-    {/* <PodcastsList /> */}
-      <p>Hello Next.js</p>
     </Layout>
   );
 };

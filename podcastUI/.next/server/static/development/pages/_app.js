@@ -116,7 +116,8 @@ const GlobalState = props => {
   const initialState = {
     theme: 'light',
     podcastList: [],
-    currentPodcast: {}
+    currentPodcast: {},
+    currentPodcastId: ""
   };
   const {
     0: podcastState,
@@ -145,7 +146,7 @@ const GlobalState = props => {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 28
     },
     __self: undefined
   }, props.children);
@@ -211,18 +212,13 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 const UPDATE_PODCASTS_LIST = 'UPDATE_PODCASTS_LIST';
 const UPDATE_CURRENT_PODCAST = 'UPDATE_CURRENT_PODCAST';
-
-const updatePodcastsList = podcasts => {
-  return podcasts;
-};
-
-const updateCurrentPodcast = podcast => {
-  return podcast;
-};
-
+// const updatePodcastsList = (podcasts) => {
+//     return podcasts;
+// }
+// const updateCurrentPodcast = (podcast) => {
+//     return podcast;
+// }
 const podcastReducer = (state, action) => {
-  debugger;
-
   switch (action.type) {
     case UPDATE_PODCASTS_LIST:
       {
@@ -234,8 +230,7 @@ const podcastReducer = (state, action) => {
 
     case UPDATE_CURRENT_PODCAST:
       {
-        debugger; // let currentPodcast = updateCurrentPodcast(state.currentPodcast);
-
+        // let currentPodcast = updateCurrentPodcast(state.currentPodcast);
         return _objectSpread({}, state, {
           currentPodcast: action.value
         });
@@ -684,6 +679,17 @@ function _typeof(obj) {
 }
 
 module.exports = _typeof;
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-svg-core/styles.css":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-svg-core/styles.css ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
@@ -2070,6 +2076,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "@apollo/react-hooks");
 /* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _lib_apollo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../lib/apollo */ "./lib/apollo.js");
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core */ "@fortawesome/fontawesome-svg-core");
+/* harmony import */ var _fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _fortawesome_fontawesome_svg_core_styles_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/fontawesome-svg-core/styles.css */ "./node_modules/@fortawesome/fontawesome-svg-core/styles.css");
+/* harmony import */ var _fortawesome_fontawesome_svg_core_styles_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_fortawesome_fontawesome_svg_core_styles_css__WEBPACK_IMPORTED_MODULE_7__);
 
 var _jsxFileName = "/Users/kod/Desktop/podcastframework/podcastUI/pages/_app.js";
 
@@ -2078,6 +2088,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
+
+
+_fortawesome_fontawesome_svg_core__WEBPACK_IMPORTED_MODULE_6__["config"].autoAddCss = false;
 
 function MyApp({
   Component,
@@ -2088,19 +2101,19 @@ function MyApp({
     client: apollo,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 15
     },
     __self: this
   }, __jsx(_components_context_globalState__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 12
+      lineNumber: 16
     },
     __self: this
   }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 17
     },
     __self: this
   }))));
@@ -2141,6 +2154,17 @@ module.exports = __webpack_require__(/*! private-next-pages/_app.js */"./pages/_
 /***/ (function(module, exports) {
 
 module.exports = require("@apollo/react-hooks");
+
+/***/ }),
+
+/***/ "@fortawesome/fontawesome-svg-core":
+/*!****************************************************!*\
+  !*** external "@fortawesome/fontawesome-svg-core" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@fortawesome/fontawesome-svg-core");
 
 /***/ }),
 

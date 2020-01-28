@@ -1,10 +1,14 @@
 import App from "next/app";
 import GlobalState from "../components/context/globalState";
 import { ApolloProvider } from '@apollo/react-hooks';
-
-
 import withData from '../lib/apollo';
 
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
+
+
+
+config.autoAddCss = false
 
 function MyApp({ Component, pageProps, apollo }) {
   return (

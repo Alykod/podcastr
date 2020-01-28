@@ -1,18 +1,25 @@
 import Layout from '../components/layout'
+import React, {useEffect, useState} from 'react'
 import { useQuery } from '@apollo/react-hooks';
-import {LatestPodcastQuery} from '../services/query';
-
+import {LatestPodcast} from '../services/query';
+import PodcastTemplate from '../components/podcastTemplate';
 
 const Latest = () =>  {
 
-    const { data, loading, error } = useQuery(LatestPodcastQuery, { variables: {someId: "1"}})
-    console.log(data)
+    const { data, loading, error } = useQuery(LatestPodcast);
+    const [podcastData, setPodcastData] = useState(null);
+
+
+    useEffect(()=> {
+        if(data && data.podcasts[0] != podcastData )
+        {
+            setPodcastData(data.podcasts[0])
+        }
+    }, [data])
+
   return (
     <Layout>
-      <div>
-        <p>This is the about page</p>
-        <a className="button is-primary">test</a>
-      </div>
+      {podcastData && <PodcastTemplate podcast={podcastData} />}
     </Layout>
   );
 }

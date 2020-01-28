@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Link from "next/link";
 import { Navbar, NavbarBrand, NavbarDivider, NavbarItem, Icon } from "bloomer";
 
@@ -6,11 +6,26 @@ const linkStyle = {
   marginRight: 15
 };
 
-const Header = () => (
+
+const Header = () => {
+
+  const [iconUrl, setIconUrl] = useState(null)
+
+
+  useEffect(()=> {
+    if(!iconUrl) {
+      if(process.browser) {
+        setIconUrl(window.location.origin + "/static/icon.png")
+      } 
+    }
+  }, [iconUrl])
+   
+  
+  return (
   <Navbar>
   <NavbarItem>
   {/* <p>Logo</p> */}
-    <img src={require("../static/logo2.svg")} style={{width: '200px' ,height: '200px'}}/>
+   {iconUrl &&  <img src={iconUrl} style={{width: '200px' ,height: '200px', 'objectFit': 'scale-down'}}/> }
   </NavbarItem>
     <NavbarItem>
       <Link href="/">
@@ -18,8 +33,8 @@ const Header = () => (
       </Link>
     </NavbarItem>
     <NavbarItem>
-      <Link href="/about">
-        <a style={linkStyle}>About</a>
+      <Link href="/blog">
+        <a style={linkStyle}>Blog</a>
       </Link>
     </NavbarItem>
     <NavbarItem>
@@ -28,6 +43,8 @@ const Header = () => (
       </Link>
     </NavbarItem>
   </Navbar>
-);
+  )
+}
+
 
 export default Header;

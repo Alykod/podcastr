@@ -6,11 +6,10 @@ import PodcastContext from './context/podcastContext';
 // style={{width: "100%", height: "10vh"}}
 const PodcastCard:FunctionComponent<Interfaces.Podcast> = ({title, description, image, id}) => {
     
-    const podcastContext = useContext(PodcastContext);
+    const {podcastState, updatePodcastList, updateCurrentPodcast} = useContext(PodcastContext);
 
     const handleSelectedPodcast = () => {
-        podcastContext.updatePodcastList()
-        console.log('bloob')
+        updateCurrentPodcast({title, description, image, id});
     }
 
 return (

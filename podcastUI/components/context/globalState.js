@@ -11,6 +11,7 @@ const GlobalState = props => {
       theme: 'light',
       podcastList: [],
       currentPodcast: {},
+      currentPodcastId: "",
   }
   
   const [podcastState, dispatch] = useReducer(podcastReducer, initialState);

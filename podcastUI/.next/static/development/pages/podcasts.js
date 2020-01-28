@@ -1,5 +1,69 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/podcasts.js"],{
 
+/***/ "./components/audio/audioPlayer.tsx":
+/*!******************************************!*\
+  !*** ./components/audio/audioPlayer.tsx ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var bloomer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bloomer */ "./node_modules/bloomer/bundles/bloomer.min.js");
+/* harmony import */ var bloomer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bloomer__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _audio_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./audio.scss */ "./components/audio/audio.scss");
+/* harmony import */ var _audio_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_audio_scss__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/kod/Desktop/podcastframework/podcastUI/components/audio/audioPlayer.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+var AudioPlayer = function AudioPlayer(_ref) {
+  var url = _ref.url,
+      id = _ref.id,
+      mime = _ref.mime;
+  // const {currentTime, duration, playing, setPlaying, setClickedTime} = useAudioPlayer();
+  return (// <div >
+    //     <audio controls>
+    //         <source src={url} type={mime} id={id} />
+    //     </audio>
+    // </div>
+    __jsx(bloomer__WEBPACK_IMPORTED_MODULE_1__["Box"], {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 22
+      },
+      __self: this
+    }, __jsx("audio", {
+      id: "audio",
+      controls: true,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 23
+      },
+      __self: this
+    }, __jsx("source", {
+      src: cardUrlHandler(url),
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 24
+      },
+      __self: this
+    })))
+  );
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (AudioPlayer);
+
+var cardUrlHandler = function cardUrlHandler(url) {
+  return "http://localhost:1337/".concat(url);
+};
+
+/***/ }),
+
 /***/ "./components/context/podcastContext.js":
 /*!**********************************************!*\
   !*** ./components/context/podcastContext.js ***!
@@ -42,87 +106,99 @@ var linkStyle = {
 };
 
 var Header = function Header() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      iconUrl = _useState[0],
+      setIconUrl = _useState[1];
+
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (!iconUrl) {
+      if (true) {
+        setIconUrl(window.location.origin + "/static/icon.png");
+      }
+    }
+  }, [iconUrl]);
   return __jsx(bloomer__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 25
     },
     __self: this
   }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_2__["NavbarItem"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 26
     },
     __self: this
-  }, __jsx("img", {
-    src: __webpack_require__(/*! ../static/logo2.svg */ "./static/logo2.svg"),
+  }, iconUrl && __jsx("img", {
+    src: iconUrl,
     style: {
       width: '200px',
-      height: '200px'
+      height: '200px',
+      'objectFit': 'scale-down'
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 28
     },
     __self: this
   })), __jsx(bloomer__WEBPACK_IMPORTED_MODULE_2__["NavbarItem"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 30
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 31
     },
     __self: this
   }, __jsx("a", {
     style: linkStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 32
     },
     __self: this
   }, "Home"))), __jsx(bloomer__WEBPACK_IMPORTED_MODULE_2__["NavbarItem"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 35
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
-    href: "/about",
+    href: "/blog",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 36
     },
     __self: this
   }, __jsx("a", {
     style: linkStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 22
+      lineNumber: 37
     },
     __self: this
-  }, "About"))), __jsx(bloomer__WEBPACK_IMPORTED_MODULE_2__["NavbarItem"], {
+  }, "Blog"))), __jsx(bloomer__WEBPACK_IMPORTED_MODULE_2__["NavbarItem"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 40
     },
     __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/latest",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 41
     },
     __self: this
   }, __jsx("a", {
     style: linkStyle,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 42
     },
     __self: this
   }, "Latest"))));
@@ -178,6 +254,131 @@ var Layout = function Layout(props) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Layout);
+
+/***/ }),
+
+/***/ "./components/podcastTemplate.js":
+/*!***************************************!*\
+  !*** ./components/podcastTemplate.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/layout */ "./components/layout.tsx");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _apollo_react_hooks__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @apollo/react-hooks */ "./node_modules/@apollo/react-hooks/lib/react-hooks.esm.js");
+/* harmony import */ var _services_query__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../services/query */ "./services/query.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var bloomer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! bloomer */ "./node_modules/bloomer/bundles/bloomer.min.js");
+/* harmony import */ var bloomer__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(bloomer__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _services_interface__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../services/interface */ "./services/interface.ts");
+/* harmony import */ var _services_interface__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_services_interface__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _components_context_podcastContext__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/context/podcastContext */ "./components/context/podcastContext.js");
+/* harmony import */ var _components_audio_audioPlayer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/audio/audioPlayer */ "./components/audio/audioPlayer.tsx");
+
+var _jsxFileName = "/Users/kod/Desktop/podcastframework/podcastUI/components/podcastTemplate.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement;
+
+
+
+
+
+
+
+
+
+
+
+var PodcastTemplate = function PodcastTemplate(props) {
+  var cardUrlHandler = function cardUrlHandler(url) {
+    return "http://localhost:1337/".concat(url);
+  };
+
+  return __jsx("section", {
+    className: "section",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, __jsx("div", {
+    className: "container",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_7__["Tile"], {
+    isAncestor: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_7__["Tile"], {
+    isParent: true,
+    isVertical: true,
+    className: "is-4",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
+  }, __jsx("img", {
+    style: {
+      height: '100%',
+      objectFit: "cover",
+      width: '100%'
+    },
+    src: cardUrlHandler(props.podcast.image.url),
+    alt: props.podcast.title,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 28
+    },
+    __self: this
+  })), __jsx(bloomer__WEBPACK_IMPORTED_MODULE_7__["Tile"], {
+    isParent: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
+  }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_7__["Box"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 31
+    },
+    __self: this
+  }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_7__["Title"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: this
+  }, props.podcast.title), __jsx(_components_audio_audioPlayer__WEBPACK_IMPORTED_MODULE_10__["default"], Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props.podcast.audioFile, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  })), __jsx(bloomer__WEBPACK_IMPORTED_MODULE_7__["Content"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, props.podcast.description))))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (PodcastTemplate);
 
 /***/ }),
 
@@ -1409,6 +1610,39 @@ function _createClass(Constructor, protoProps, staticProps) {
 }
 
 module.exports = _createClass;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js ***!
+  \********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _extends; });
+/* harmony import */ var _core_js_object_assign__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/assign */ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js");
+/* harmony import */ var _core_js_object_assign__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_assign__WEBPACK_IMPORTED_MODULE_0__);
+
+function _extends() {
+  _extends = _core_js_object_assign__WEBPACK_IMPORTED_MODULE_0___default.a || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
 
 /***/ }),
 
@@ -35275,9 +35509,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _services_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../services/query */ "./services/query.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 /* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var bloomer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! bloomer */ "./node_modules/bloomer/bundles/bloomer.min.js");
-/* harmony import */ var bloomer__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(bloomer__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _components_context_podcastContext__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/context/podcastContext */ "./components/context/podcastContext.js");
+/* harmony import */ var _components_podcastTemplate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/podcastTemplate */ "./components/podcastTemplate.js");
 var _jsxFileName = "/Users/kod/Desktop/podcastframework/podcastUI/pages/podcasts.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
@@ -35288,16 +35520,12 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 
-
 var PodcastPage = function PodcastPage() {
   var router = Object(next_router__WEBPACK_IMPORTED_MODULE_0__["useRouter"])();
-  var PodcastSelectedContext = Object(react__WEBPACK_IMPORTED_MODULE_2__["useContext"])(_components_context_podcastContext__WEBPACK_IMPORTED_MODULE_7__["default"]);
-  console.log(PodcastSelectedContext);
-  debugger;
 
-  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_services_query__WEBPACK_IMPORTED_MODULE_4__["SelectedPodcastQuery"], {
+  var _useQuery = Object(_apollo_react_hooks__WEBPACK_IMPORTED_MODULE_3__["useQuery"])(_services_query__WEBPACK_IMPORTED_MODULE_4__["SinglePodcast"], {
     variables: {
-      someTitle: router.query.title
+      filter: router.query.title
     }
   }),
       data = _useQuery.data,
@@ -35309,113 +35537,43 @@ var PodcastPage = function PodcastPage() {
       setPodcast = _useState[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
-    debugger;
-
-    if (data && !lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEqual(data.podcasts, podcast)) {
-      setPodcast(data);
+    if (data && !lodash__WEBPACK_IMPORTED_MODULE_5___default.a.isEqual(data.podcast, podcast)) {
+      setPodcast(data.podcasts[0]);
     }
   }, [data]);
-
-  var handleLayout = function handleLayout() {
-    return __jsx("section", {
-      className: "section",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 33
-      },
-      __self: this
-    }, __jsx("div", {
-      className: "container",
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 34
-      },
-      __self: this
-    }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_6__["Tile"], {
-      isAncestor: true,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 35
-      },
-      __self: this
-    }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_6__["Tile"], {
-      isParent: true,
-      isVertical: true,
-      "is-4": true,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 36
-      },
-      __self: this
-    }, __jsx("img", {
-      style: {
-        height: '100%',
-        objectFit: "cover",
-        width: '100%'
-      },
-      src: cardUrlHandler(podcast.image.url),
-      alt: podcast.title,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 37
-      },
-      __self: this
-    })), __jsx(bloomer__WEBPACK_IMPORTED_MODULE_6__["Tile"], {
-      isParent: true,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 39
-      },
-      __self: this
-    }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_6__["Box"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 40
-      },
-      __self: this
-    }, __jsx(bloomer__WEBPACK_IMPORTED_MODULE_6__["Title"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 41
-      },
-      __self: this
-    }, podcast.title), __jsx("audio", {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 42
-      },
-      __self: this
-    }, __jsx("source", {
-      src: cardUrlHandler(podcast.audioFile.url),
-      type: podcast.audioFile.mime,
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 43
-      },
-      __self: this
-    })), __jsx(bloomer__WEBPACK_IMPORTED_MODULE_6__["Content"], {
-      __source: {
-        fileName: _jsxFileName,
-        lineNumber: 45
-      },
-      __self: this
-    }, podcast.description))))));
-  };
-
+  Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {
+    if (error) {
+      window.location.href = window.location.origin;
+    }
+  }, [error]);
   return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 55
+      lineNumber: 34
     },
     __self: this
-  }, podcast ? handleLayout() : null);
+  }, podcast ? __jsx(_components_podcastTemplate__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    podcast: podcast,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }) : null);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (PodcastPage);
 
-var cardUrlHandler = function cardUrlHandler(url) {
-  return "http://localhost:1337/".concat(url);
-};
+/***/ }),
+
+/***/ "./services/interface.ts":
+/*!*******************************!*\
+  !*** ./services/interface.ts ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
@@ -35423,21 +35581,43 @@ var cardUrlHandler = function cardUrlHandler(url) {
 /*!***************************!*\
   !*** ./services/query.js ***!
   \***************************/
-/*! exports provided: PodcastsQuery, LatestPodcastQuery, SelectedPodcastQuery */
+/*! exports provided: PodcastsQuery, SelectedPodcastQuery, SinglePodcast, LatestPodcast, Posts */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PodcastsQuery", function() { return PodcastsQuery; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LatestPodcastQuery", function() { return LatestPodcastQuery; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SelectedPodcastQuery", function() { return SelectedPodcastQuery; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SinglePodcast", function() { return SinglePodcast; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LatestPodcast", function() { return LatestPodcast; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Posts", function() { return Posts; });
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_1__);
 
 
+function _templateObject5() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  query Posts {\n    posts {\n      title,\n      content, \n      image {\n        url,\n        id,\n        mime\n      },\n      publishDate\n    }\n  }"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    query Podcasts {\n      podcasts(limit: 1, sort: \"created_at:DESC\" ) {\n        description\n        title\n        image {\n          url\n          id\n          mime\n        }\n        created_at\n        id\n        audioFile {\n          url\n          id\n          mime\n        }\n      }\n    }\n  "]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject3() {
-  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    query Podcasts($someId: ID!) {\n      podcast(id: $someId) {\n        description\n        title\n        image {\n          url\n          id\n          mime\n        }\n        id\n        audioFile {\n          url\n          id\n          mime\n        }\n      }\n    }\n  "]);
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    query Podcasts($filter: String!) {\n      podcasts(limit: 1, where: {title: $filter}) {\n        description\n        title\n        image {\n          url\n          id\n          mime\n        }\n        id\n        audioFile {\n          url\n          id\n          mime\n        }\n      }\n    }\n  "]);
 
   _templateObject3 = function _templateObject3() {
     return data;
@@ -35468,23 +35648,14 @@ function _templateObject() {
 
 
 var PodcastsQuery = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject());
-var LatestPodcastQuery = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject2());
-var SelectedPodcastQuery = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject3());
+var SelectedPodcastQuery = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject2());
+var SinglePodcast = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject3());
+var LatestPodcast = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject4());
+var Posts = graphql_tag__WEBPACK_IMPORTED_MODULE_1___default()(_templateObject5());
 
 /***/ }),
 
-/***/ "./static/logo2.svg":
-/*!**************************!*\
-  !*** ./static/logo2.svg ***!
-  \**************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/_next/static/images/logo2-1551f5d8b6bef6fb23f3150d513866c7.svg";
-
-/***/ }),
-
-/***/ 3:
+/***/ 1:
 /*!*******************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fpodcasts&absolutePagePath=%2FUsers%2Fkod%2FDesktop%2Fpodcastframework%2FpodcastUI%2Fpages%2Fpodcasts.tsx ***!
   \*******************************************************************************************************************************************************/
@@ -35507,5 +35678,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=podcasts.js.map
